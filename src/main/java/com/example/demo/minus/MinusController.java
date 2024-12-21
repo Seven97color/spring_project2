@@ -15,16 +15,16 @@ public class MinusController {
 	}
 
 	@GetMapping("minus")
-	public String gminus(Model model) {
+	public String minus(Model model) {
 
 		return "minus.html";//minus.htmlに画面遷移
 	
 	}
 
 	@GetMapping("minus1")
-	public String gminus(Model model, @RequestParam("text1") int int1, @RequestParam("text2") int int2) {
+	public String minus(Model model, @RequestParam("text1") String str1, @RequestParam("text2") String str2) {
 
-		model.addAttribute("result", minusService.minus(int1, int2));
+		model.addAttribute("result", minusService.minus(str1, str2));
 		
 		return "minus.html";//minus.htmlに画面遷移
 	
