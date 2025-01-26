@@ -9,9 +9,9 @@
 <body>
 	<h1>引き算</h1>
 	<form method="get" action="/minus1">
-		<input type="text" name="text1" th:value="${text1_value}" />
+		<input type="text" name="text1">
 		-
-		<input type="text" name="text2" th:value="${text2_value}" />
+		<input type="text" name="text2">
 		<input type="submit" value="=" />
 		<p th:text="${result}"></p>
 	</form>

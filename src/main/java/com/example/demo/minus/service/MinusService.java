@@ -1,4 +1,4 @@
-package com.example.demo.minus;
+package com.example.demo.minus.service;
 
 import org.springframework.stereotype.Service;
 
