@@ -10,28 +10,26 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Repository
 public class AnimalsAPIRepository {
-	private final RestTemplate restTemplate;
-	
-	  public AnimalsAPIRepository(RestTemplate restTemplate) {
-	        this.restTemplate = restTemplate;
-	    }
 
 	public AnimalsAPIData[] getAnimals() throws IOException {
 		String url = "https://wsaz0e6z45.execute-api.ap-northeast-1.amazonaws.com/prod/animalsAPI";
-		String response = restTemplate.getForObject(url, String.class);
+		RestTemplate rest = new RestTemplate();
+		String response = rest.getForObject(url, String.class);
 
 		// JSON文字列をAnimalsAPIDataの配列に変換
 		ObjectMapper objectMapper = new ObjectMapper();
 		return objectMapper.readValue(response, AnimalsAPIData[].class);
 	}
 
-	public AnimalsAPIData getAnimalById(Long id) throws IOException {
-		String url = "https://wsaz0e6z45.execute-api.ap-northeast-1.amazonaws.com/prod/animalsAPI?id=1" + id;
-		String response = restTemplate.getForObject(url, String.class);
+	public AnimalsAPIData[] getAnimalById(int id) throws IOException {
+		String url = "https://wsaz0e6z45.execute-api.ap-northeast-1.amazonaws.com/prod/animalsAPI?id="
+				+ String.valueOf(id);
+		RestTemplate rest = new RestTemplate();
+		String response = rest.getForObject(url, String.class);
 
 		// JSON文字列をAnimalsAPIDataオブジェクトに変換
 		ObjectMapper objectMapper = new ObjectMapper();
-		return objectMapper.readValue(response, AnimalsAPIData.class);
+		return objectMapper.readValue(response, AnimalsAPIData[].class);
 	}
 }
 

@@ -8,8 +8,8 @@
 
 <body>
 	<h1>動物検索画面</h1>
-	<form method="get" th:action="@{/detail/{id}(id=${animalId})}">
-		<select name="animalId" id="animals">
+	<form method="get" action="/animalsDetailAPI">
+		<select name="id" id="animals">
 			<option th:each="animal : ${animalsAPI}" th:value="${animal.id}" th:text="${animal.japaneseName}">
 		</select>
 		<button type="submit">検索</button>

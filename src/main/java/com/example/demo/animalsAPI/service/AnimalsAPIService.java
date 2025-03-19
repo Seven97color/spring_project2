@@ -11,20 +11,18 @@ import com.example.demo.animalsAPI.repository.AnimalsAPIRepository;
 
 @Service
 public class AnimalsAPIService {
-    private final AnimalsAPIRepository animalsAPIRepository;
+	private final AnimalsAPIRepository animalsAPIRepository;
 
-    public AnimalsAPIService(AnimalsAPIRepository animalsAPIRepository) {
-        this.animalsAPIRepository = animalsAPIRepository;
-    }
+	public AnimalsAPIService(AnimalsAPIRepository animalsAPIRepository) {
+		this.animalsAPIRepository = animalsAPIRepository;
+	}
 
-    public List<AnimalsAPIData> getAnimals() throws IOException {
-        // 配列をリストに変換して返す
-        return Arrays.asList(animalsAPIRepository.getAnimals());
-    }
+	public List<AnimalsAPIData> getAnimals() throws IOException {
+		// 配列をリストに変換して返す
+		return Arrays.asList(animalsAPIRepository.getAnimals());
+	}
 
-    public AnimalsAPIData getAnimalById(Long id) throws IOException {
-        return animalsAPIRepository.getAnimalById(id);
-    }
+	public List<AnimalsAPIData> getAnimalById(int id) throws IOException {
+		return Arrays.asList(animalsAPIRepository.getAnimalById(id));
+	}
 }
-
-
